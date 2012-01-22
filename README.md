@@ -2,7 +2,8 @@
 
 Demo site: <http://cam.dabase.com>
 
-Features low <150 [source lines of code](http://en.wikipedia.org/wiki/Source_lines_of_code)
+* Features low <150 [source lines of code](http://en.wikipedia.org/wiki/Source_lines_of_code)
+* Simple caching to make next image load quickly.
 
 # Requirements
 
@@ -12,7 +13,7 @@ CGI support
 
 Assuming your **VirtualDocumentRoot** is `/web/%0`.
 
-Git **Praze** clone into /web/praze.example.com
+Git clone into /web/praze.example.com
 
 Link image directory into cloned directory:
 
