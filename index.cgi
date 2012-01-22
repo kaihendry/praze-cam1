@@ -17,7 +17,7 @@ Content-Type: text/html
 
 <body>
 
-<div id="cam"></div>
+<div id="cam"><h1>No JPG image files found!</h1></div>
 
 <button onclick="next();">&gt;</button>
 <button onclick="prev();">&lt;</button>

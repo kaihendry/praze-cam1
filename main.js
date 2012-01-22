@@ -3,9 +3,6 @@ var current;
 $(document).ready(function() {
 
 	il = $("#pix li");
-	if (il.length === 0) {
-		$('#cam').html("<h1>No JPGs image files found!</h1>");
-	}
 
 	il.click(function(e) {
 		e.preventDefault();
@@ -48,7 +45,8 @@ function next() {
 	// console.log("Next...");
 	il.eq(current).removeClass('active');
 	current = ((current + 1) == total ? 0: (current + 1));
-	loadImage(current + 1); // Load the one after the next in advance
+	nn = current + 1; // next next
+	if (nn < total) loadImage(nn);
 	il.eq(current).addClass('active');
 	title();
 }
@@ -61,8 +59,10 @@ function prev() {
 }
 
 function loadImage(i) {
-	if (il[i].img) { return; }
-	// console.log("Loading ... " + i);
+	if (il[i].img) {
+		return;
+	}
+	console.log("Loading ... " + i);
 	il[i].img = new Image();
 	il[i].img.src = il[i].textContent;
 	il[i].img.onload = function() {
