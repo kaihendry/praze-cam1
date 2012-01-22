@@ -45,7 +45,7 @@ $(document).ready(function() {
 });
 
 function next() {
-	console.log("Next...");
+	// console.log("Next...");
 	il.eq(current).removeClass('active');
 	current = ((current + 1) == total ? 0: (current + 1));
 	loadImage(current + 1); // Load the one after the next in advance
@@ -61,10 +61,10 @@ function prev() {
 }
 
 function loadImage(i) {
-	console.log("Loading ... " + i);
 	if (il[i].img) { return; }
+	// console.log("Loading ... " + i);
 	il[i].img = new Image();
-	il[i].img.src = il[current].textContent;
+	il[i].img.src = il[i].textContent;
 	il[i].img.onload = function() {
 		width = this.width > window.innerWidth ? window.innerWidth: this.width;
 		height = this.height > window.innerHeight ? window.innerHeight: this.height;
