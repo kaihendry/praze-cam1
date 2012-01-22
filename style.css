@@ -1,0 +1,8 @@
+body {
+	font-family: arial, sans-serif;
+}
+button {
+	font-size: 2em;
+	border:1px solid #A78B53;
+}
+.active { background-color: pink; }
