@@ -24,7 +24,7 @@ Content-Type: text/html
 
 <ul id="pix">
 END
-find -L . -iname '*.jpg' -printf "%P\n" | sort | while read image
+find -L . -iname '*.jpg' -printf "%P\n" | sort -r | while read image
 do
 	echo "<li><a href=\"$image\">$image</a></li>"
 done
