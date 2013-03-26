@@ -8,8 +8,9 @@ Content-Type: text/html
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width = 640, height = 480, user-scalable = no">
+<meta name="viewport" content="width=800, height=600">
 <title>Webcam viewer</title>
+<script src="https://login.persona.org/include.js"></script>
 <link rel="stylesheet" href="style.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="main.js"></script>
@@ -17,16 +18,27 @@ Content-Type: text/html
 
 <body>
 
+<!--
+<button id=signin><img src="email_sign_in_black.png"></button>
+<button id=signout>Signout</button>
+-->
+
 <div id="cam"><h1>No JPG image files found!</h1></div>
 
-<button onclick="next();">&gt;</button>
-<button onclick="prev();">&lt;</button>
+<button onclick="prev();">&larr;</button>
+<button onclick="next();">&rarr;</button>
 
 <ul id="pix">
 END
-find -L . -iname '*.jpg' -printf "%P\n" | sort -r | while read image
+ls -t *.jpg | sort -r |  while read image
 do
-	echo "<li><a href=\"$image\">$image</a></li>"
+	if test "$image" = "lastfetched.jpg"
+	then
+		continue
+	fi
+	e=$(basename $image .jpg)
+	desc=$(TZ='Asia/Singapore' date --iso-8601=minutes --date="@$e")
+	echo "<li><a href=\"$image\">$desc</a></li>"
 done
 cat <<END
 </ul>

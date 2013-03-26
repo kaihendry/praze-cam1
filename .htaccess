@@ -1,3 +1,4 @@
 Options +ExecCGI
 AddHandler cgi-script .cgi
 DirectoryIndex index.cgi
+Redirect /last.jpg /1364124301.jpg

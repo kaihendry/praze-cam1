@@ -64,13 +64,8 @@ function loadImage(i) {
 	}
 	console.log("Loading ... " + i);
 	il[i].img = new Image();
-	il[i].img.src = il[i].textContent;
-	il[i].img.onload = function() {
-		width = this.width > window.innerWidth ? window.innerWidth: this.width;
-		height = this.height > window.innerHeight ? window.innerHeight: this.height;
-		this.width = width;
-		this.height = height;
-	};
+	console.log(il[i]);
+	il[i].img.src = il[i].img.src = il[i].firstChild.href;
 }
 
 function title() {
@@ -84,7 +79,21 @@ function title() {
 	}
 
 	document.title = ("[" + (current + 1) + " of " + total + "]");
-	location.hash = il[current].textContent;
+	location.hash = il[current].firstChild.getAttribute('href');
+
+
+var signinLink = document.getElementById('signin');
+if (signinLink) {
+  signinLink.onclick = function() { navigator.id.request(); };
+}
+
+var signoutLink = document.getElementById('signout');
+if (signoutLink) {
+  signoutLink.onclick = function() { navigator.id.logout(); };
+}
 
 }
+
+
+
 
