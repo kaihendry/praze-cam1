@@ -8,11 +8,10 @@ Content-Type: text/html
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=800, height=600">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Webcam viewer</title>
-<script src="https://login.persona.org/include.js"></script>
 <link rel="stylesheet" href="style.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="main.js"></script>
 </head>
 
@@ -42,6 +41,7 @@ do
 done
 cat <<END
 </ul>
+<p><a href="https://github.com/kaihendry/Praze/tree/cam.hackerspace.sg">MIT licensed source</a></p>
 </body>
 </html>
 END

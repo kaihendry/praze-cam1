@@ -62,9 +62,9 @@ function loadImage(i) {
 	if (il[i].img) {
 		return;
 	}
-	console.log("Loading ... " + i);
+	//console.log("Loading ... " + i);
 	il[i].img = new Image();
-	console.log(il[i]);
+	//console.log(il[i]);
 	il[i].img.src = il[i].img.src = il[i].firstChild.href;
 }
 
