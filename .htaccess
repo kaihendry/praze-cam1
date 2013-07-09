@@ -1,3 +1,7 @@
 Options +ExecCGI
 AddHandler cgi-script .cgi
 DirectoryIndex index.cgi
+#AuthType Digest
+#AuthName "praze"
+#AuthUserFile .password
+#Require valid-user

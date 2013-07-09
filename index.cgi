@@ -8,10 +8,10 @@ Content-Type: text/html
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width = 640, height = 480, user-scalable = no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Webcam viewer</title>
 <link rel="stylesheet" href="style.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/jquery.js"></script>
 <script src="main.js"></script>
 </head>
 
@@ -24,7 +24,7 @@ Content-Type: text/html
 
 <ul id="pix">
 END
-find -L . -iname '*.jpg' -printf "%P\n" | sort | while read image
+find -L -iname '*.jpg' -printf "%C@ %p\n" | sort -r | while read time image
 do
 	echo "<li><a href=\"$image\">$image</a></li>"
 done

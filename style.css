@@ -1,8 +1,13 @@
 body {
-	font-family: sans-serif;
+	font-family: "Helvetica Neue", sans-serif;
 }
+
+img{
+   max-width:100%;
+}
+
 button {
 	font-size: 2em;
 	border:1px solid #A78B53;
 }
-.active { background-color: pink; }
+.active { background-color: yellow; }
