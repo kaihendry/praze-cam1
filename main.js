@@ -66,6 +66,8 @@ function loadImage(i) {
 	il[i].img = new Image();
 	//console.log(il[i]);
 	il[i].img.src = il[i].img.src = il[i].firstChild.href;
+	il[i].img.width = 800;
+	il[i].img.height = 600;
 }
 
 function title() {
