@@ -15,8 +15,9 @@ body {
 	font-family: "Helvetica Neue", sans-serif;
 }
 
-img{
-   max-width:100%;
+img {
+   width: 100%;
+   height: auto;
 }
 
 button {
@@ -38,16 +39,10 @@ button {
 
 <ul id="pix">
 END
-ls -t *.webp | sort -r |  while read image
-do
-	if test "$image" = "lastfetched.jpg"
-	then
-		continue
-	fi
-	e=$(basename $image .webp)
-	desc=$(TZ='Asia/Singapore' date --iso-8601=minutes --date="@$e")
-	echo "<li><a href=\"$image\">$desc</a></li>"
-done
+
+find . -name old -a -type d -prune -o -iname '*.webp' -type f ! -size 0 -printf "%f %P\n" |
+sort -r |
+while read time image; do echo "<li><a href=\"$image\">$image</a></li>"; done
 cat <<END
 </ul>
 <p><a href="https://github.com/kaihendry/Praze/tree/cam.hackerspace.sg">MIT licensed source</a></p>

@@ -10,7 +10,7 @@ then
 	exit
 fi
 
-if ! test -s /tmp/$n || perceptualdiff -threshold 200000 /tmp/$n lastfetched.jpg > /dev/null
+if ! test -s /tmp/$n # || perceptualdiff -threshold 200000 /tmp/$n lastfetched.jpg > /dev/null
 then
 	rm -f /tmp/$n
 	n="lastfetched.jpg"
