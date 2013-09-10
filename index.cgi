@@ -27,13 +27,13 @@ button {
 .active { background-color: yellow; }
 </style>
 <script src="/jquery.js"></script>
-<script src="main.js"></script>
+<script src="/main.js"></script>
 </head>
 
 <body>
 
 <div id="cam"><h1>No image files found!</h1></div>
-
+<h3 id="date"></h3>
 <button onclick="prev();">&larr;</button>
 <button onclick="next();">&rarr;</button>
 

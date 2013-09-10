@@ -4,10 +4,12 @@ $(document).ready(function() {
 
 	il = $("#pix li");
 
+	// If user clicks an image in the list items, switch to it
 	il.click(function(e) {
 		e.preventDefault();
 		il.eq(current).removeClass('active');
 		current = ($(this).index());
+		console.log(current);
 		il.eq(current).addClass('active');
 		title();
 	});
@@ -62,40 +64,31 @@ function loadImage(i) {
 	if (il[i].img) {
 		return;
 	}
-	//console.log("Loading ... " + i);
+	// console.log("Loading ... " + i);
 	il[i].img = new Image();
-	//console.log(il[i]);
-	il[i].img.src = il[i].img.src = il[i].firstChild.href;
-	il[i].img.width = 800;
-	il[i].img.height = 600;
+	il[i].img.src = il[i].firstChild.href;
+}
+
+function filenametodate(filename) {
+	epoch = parseFloat(filename.split('/').reverse()[0]);
+	return new Date(epoch * 1000);
 }
 
 function title() {
 
+	$('#date').html(filenametodate(il[current].innerText));
+
 	/* Update which image is visible and the label */
 	if (il[current].img) {
 		$('#cam').html(il[current].img);
+		//il.eq(current).html('<p>foo</p>');
 	} else {
 		loadImage(current);
 		$('#cam').html(il[current].img);
+		//il.eq(current).html('<p>foo</p>');
 	}
 
 	document.title = ("[" + (current + 1) + " of " + total + "]");
 	location.hash = il[current].firstChild.getAttribute('href');
 
-
-var signinLink = document.getElementById('signin');
-if (signinLink) {
-  signinLink.onclick = function() { navigator.id.request(); };
 }
-
-var signoutLink = document.getElementById('signout');
-if (signoutLink) {
-  signoutLink.onclick = function() { navigator.id.logout(); };
-}
-
-}
-
-
-
-

@@ -3,7 +3,8 @@
 Demo site: <http://cam.hackerspace.sg>
 
 * Features low <150 [source lines of code](http://en.wikipedia.org/wiki/Source_lines_of_code)
-* Simple caching to make next image load quickly.
+* Simple caching to make next image load quickly
+* Assumes images are retrieved in Epoch format
 * Supports WebP to JPEG conversion on the fly
 
 # Requirements
