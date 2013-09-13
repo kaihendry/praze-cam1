@@ -76,7 +76,7 @@ function filenametodate(filename) {
 
 function title() {
 
-	$('#date').html(filenametodate(il[current].innerText));
+	$('#date').html(filenametodate(il[current].textContent));
 
 	/* Update which image is visible and the label */
 	if (il[current].img) {
