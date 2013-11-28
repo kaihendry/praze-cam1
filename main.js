@@ -41,20 +41,23 @@ $(document).ready(function() {
 		next();
 	});
 
-	$(window).resize(function(e){
-		var margin = $('body').css('margin').replace(/[^\d]+/, '');
-		var winh = $(window).height() - margin*2;
-		var winw = $(window).width()  - margin*2;
-		if ($('img').width() > winw)
-		{
-			$('img').height('auto').width('100%');
-		}
-		else if ($('img').height() > winh)
-		{
-			$('img').width('auto').height(winh);
-		}
-	});
+	resizeImage(null);
+	$(window).resize(resizeImage);
 });
+
+function resizeImage(event) {
+	var margin = $('body').css('margin').replace(/[^\d]+/, '');
+	var winh = $(window).height() - margin*2;
+	var winw = $(window).width()  - margin*2;
+	if ($('img').width() > winw)
+	{
+		$('img').height('auto').width('100%');
+	}
+	else if ($('img').height() > winh)
+	{
+		$('img').width('auto').height(winh);
+	}
+}
 
 function next() {
 	// console.log("Next...");
