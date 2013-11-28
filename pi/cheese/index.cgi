@@ -17,11 +17,15 @@ then
 
 	if ssh cam@pi.dabase.com -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p $port "~/capture.sh $options" > $output
 	then
-		echo Successful wrote $output
+		if test $(stat -c %s "$output") -lt 60000
+		then
+			rm "$output"
+			echo "Failed, file too small (probably too dark or transfer error)"
+		else
+			echo pi/$(basename $output) > /srv/www/cam.hackerspace.sg/lastfetched.txt
+		fi
 	else
 		echo Failed $?
 	fi
 
 fi
-
-test -s "$output" || rm "$output"

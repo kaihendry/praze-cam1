@@ -1,9 +1,11 @@
 #!/bin/sh
 
-cat <<END
-Cache-Control: no-cache
-Content-Type: text/html
+if test "$REQUEST_METHOD"
+then
+	echo -e "Cache-Control: no-cache\nContent-Type: text/html\n\n"
+fi
 
+cat <<END
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -14,12 +16,10 @@ Content-Type: text/html
 body {
 	font-family: "Helvetica Neue", sans-serif;
 }
-
 img {
-   width: 100%;
-   height: auto;
+	width: 100%;
+	height: auto;
 }
-
 button {
 	font-size: 2em;
 	border:1px solid #A78B53;
