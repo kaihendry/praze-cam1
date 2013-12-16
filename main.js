@@ -41,7 +41,6 @@ $(document).ready(function() {
 		next();
 	});
 
-	resizeImage(null);
 	$(window).resize(resizeImage);
 });
 
@@ -107,4 +106,5 @@ function title() {
 	document.title = ("[" + (current + 1) + " of " + total + "]");
 	location.hash = il[current].firstChild.getAttribute('href');
 
+	resizeImage(null);
 }
