@@ -82,6 +82,8 @@ function loadImage(i) {
 	// console.log("Loading ... " + i);
 	il[i].img = new Image();
 	il[i].img.src = il[i].firstChild.href;
+
+	setTimeout(resizeImage, 1000);
 }
 
 function filenametodate(filename) {
