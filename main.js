@@ -41,7 +41,22 @@ $(document).ready(function() {
 		next();
 	});
 
+	$(window).resize(resizeImage);
 });
+
+function resizeImage(event) {
+	var margin = $('body').css('margin').replace(/[^\d]+/, '');
+	var winh = $(window).height() - margin*2;
+	var winw = $(window).width()  - margin*2;
+	if ($('img').width() > winw)
+	{
+		$('img').height('auto').width('100%');
+	}
+	else if ($('img').height() > winh)
+	{
+		$('img').width('auto').height(winh);
+	}
+}
 
 function next() {
 	// console.log("Next...");
@@ -67,6 +82,8 @@ function loadImage(i) {
 	// console.log("Loading ... " + i);
 	il[i].img = new Image();
 	il[i].img.src = il[i].firstChild.href;
+
+	setTimeout(resizeImage, 1000);
 }
 
 function filenametodate(filename) {
@@ -91,4 +108,5 @@ function title() {
 	document.title = ("[" + (current + 1) + " of " + total + "]");
 	location.hash = il[current].firstChild.getAttribute('href');
 
+	resizeImage(null);
 }
